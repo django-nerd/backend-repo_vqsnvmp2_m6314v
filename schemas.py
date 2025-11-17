@@ -12,37 +12,51 @@ Model name is converted to lowercase for the collection name:
 """
 
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, List
+from datetime import date
 
-# Example schemas (replace with your own):
+# ---------------- Student Management System Schemas ----------------
+
+class Student(BaseModel):
+    first_name: str = Field(..., description="Student first name")
+    last_name: str = Field(..., description="Student last name")
+    email: str = Field(..., description="Student email")
+    roll_number: str = Field(..., description="Unique roll number")
+    class_id: Optional[str] = Field(None, description="Assigned class ID")
+
+class Classroom(BaseModel):
+    name: str = Field(..., description="Class name, e.g., Grade 9")
+    section: Optional[str] = Field(None, description="Section identifier, e.g., A/B")
+    subject: Optional[str] = Field(None, description="Subject focus (optional)")
+    teacher_name: Optional[str] = Field(None, description="Primary teacher name")
+    academic_year: Optional[str] = Field(None, description="Academic year, e.g., 2025-26")
+
+class Assignment(BaseModel):
+    class_id: str = Field(..., description="Classroom ID this assignment belongs to")
+    title: str = Field(..., description="Assignment title")
+    description: Optional[str] = Field(None, description="Assignment details")
+    due_date: Optional[date] = Field(None, description="Due date")
+    max_score: float = Field(100, ge=0, description="Maximum score")
+
+class Grade(BaseModel):
+    student_id: str = Field(..., description="Student ID")
+    assignment_id: str = Field(..., description="Assignment ID")
+    score: float = Field(..., ge=0, description="Score achieved")
+    max_score: Optional[float] = Field(None, ge=0, description="Max score if differs from assignment")
+    remarks: Optional[str] = Field(None, description="Teacher remarks")
+
+# ---------------- Example Schemas (left for reference) ----------------
 
 class User(BaseModel):
-    """
-    Users collection schema
-    Collection name: "user" (lowercase of class name)
-    """
-    name: str = Field(..., description="Full name")
-    email: str = Field(..., description="Email address")
-    address: str = Field(..., description="Address")
-    age: Optional[int] = Field(None, ge=0, le=120, description="Age in years")
-    is_active: bool = Field(True, description="Whether user is active")
+    name: str
+    email: str
+    address: str
+    age: Optional[int] = None
+    is_active: bool = True
 
 class Product(BaseModel):
-    """
-    Products collection schema
-    Collection name: "product" (lowercase of class name)
-    """
-    title: str = Field(..., description="Product title")
-    description: Optional[str] = Field(None, description="Product description")
-    price: float = Field(..., ge=0, description="Price in dollars")
-    category: str = Field(..., description="Product category")
-    in_stock: bool = Field(True, description="Whether product is in stock")
-
-# Add your own schemas here:
-# --------------------------------------------------
-
-# Note: The Flames database viewer will automatically:
-# 1. Read these schemas from GET /schema endpoint
-# 2. Use them for document validation when creating/editing
-# 3. Handle all database operations (CRUD) directly
-# 4. You don't need to create any database endpoints!
+    title: str
+    description: Optional[str] = None
+    price: float
+    category: str
+    in_stock: bool = True

@@ -1,0 +1,31 @@
+INFO:     Will watch for changes in these directories: ['/home/workspace']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [152] using StatReload
+INFO:     Started server process [154]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     172.20.0.1:40452 - "HEAD / HTTP/1.1" 405 Method Not Allowed
+INFO:     172.20.0.1:44714 - "GET /students HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44726 - "GET /classrooms HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44714 - "GET /students HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44726 - "GET /classrooms HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44728 - "GET /grades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44744 - "GET /assignments HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44726 - "GET /grades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44728 - "GET /assignments HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44754 - "GET /students HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44766 - "GET /classrooms HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44754 - "GET /assignments HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44766 - "GET /grades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41732 - "GET /students HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41748 - "GET /classrooms HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44766 - "GET /grades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44754 - "GET /assignments HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41764 - "GET /classrooms HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41754 - "GET /students HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41764 - "GET /assignments HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41754 - "GET /grades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41764 - "GET /classrooms HTTP/1.1" 200 OK
+INFO:     172.20.0.1:41754 - "GET /students HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44016 - "GET /assignments HTTP/1.1" 200 OK
+INFO:     172.20.0.1:44020 - "GET /grades HTTP/1.1" 200 OK
